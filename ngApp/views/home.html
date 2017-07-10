@@ -1,0 +1,44 @@
+<!-- <h2>Home</h2> -->
+<h1>Troothy</h1>
+
+<h5>Welcome to Troothy.  Here politicians are not evaluated by their campaign promises.
+They are evaluated by their actions and their tangible impact on society, for better or for worse.</h5>
+
+<hr>
+<h5>Politicians</h5>
+
+<p>Search by party affiliation</p>
+<select ng-model="vm.category" ng-change="vm.getPoliticians()">
+  <option value="republicans">Republicans</option>
+  <option value="democrats">Democrats</option>
+  <option value="independents">Independents</option>
+  <option value="libertarians">Libertarians</option>
+</select>
+
+<ul>
+  <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}} <a href="/politician/{{p._id}}">--Select--</a><br><a href="/edit/{{p._id}}">Edit |</a> <a ng-click="vm.deletePolitician(p._id)">Delete</a></li>
+</ul>
+
+<a href="/add">Add politician</a>
+
+<div style="padding-top: 20px;">
+  <a href="/">Logout</a>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div>
+  <button ng-click="vm.create()">CREATE</button>
+  <button ng-click="vm.read()">READ</button>
+  <button ng-click="vm.update()">UPDATE</button>
+  <button ng-click="vm.delete()">DELETE</button>
+</div>
+
+<div style="padding-top: 20px;">
+  <a href="/">Logout</a>
+</div> -->

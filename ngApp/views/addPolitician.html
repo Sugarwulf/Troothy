@@ -1,0 +1,14 @@
+<h2>Add politician</h2>
+
+<input type="text" placeholder="name" ng-model="vm.politician.name">
+<input type="text" placeholder="title" ng-model="vm.politician.title">
+<input type="text" placeholder="state" ng-model="vm.politician.state">
+
+<select ng-model="vm.politician.category">
+  <option value="republicans">Republicans</option>
+  <option value="democrats">Democrats</option>
+  <option value="independents">Independents</option>
+  <option value="libertarians">Libertarians</option>
+</select>
+
+<button type="button" ng-click="vm.addPolitician()">Add</button>
