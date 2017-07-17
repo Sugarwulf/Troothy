@@ -5,7 +5,17 @@ import mongodb = require ('mongodb');
 let politicianSchema = new mongoose.Schema({
   name: String,
   title: String,
-  state: String
+  state: String,
+  spendMssg: String,
+  militMssg: String,
+  immigMssg: String,
+  scitechMssg: String,
+  eduMssg: String,
+  socialMssg: String,
+  envirMssg: String,
+  classMssg: String
+
+
 });
 
 export default mongoose.model('Politician', politicianSchema);

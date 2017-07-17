@@ -39,10 +39,17 @@ namespace troothy.Controllers {
               controllerAs: 'vm'
           })
 
-          .state('politician', {
-              url: '/politician/:id',
-              templateUrl: '/ngApp/views/politician.html',
-              controller: troothy.Controllers.PoliticianController,
+          .state('addDetail', {
+              url: '/addDetail/:id',
+              templateUrl: '/ngApp/views/addDetail.html',
+              controller: troothy.Controllers.AddDetailController,
+              controllerAs: 'vm'
+          })
+
+          .state('politicianDetail', {
+              url: '/politicianDetail/:id',
+              templateUrl: '/ngApp/views/politicianDetail.html',
+              controller: troothy.Controllers.PoliticianDetailController,
               controllerAs: 'vm'
           })
           .state('notFound', {

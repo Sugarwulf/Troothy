@@ -135,8 +135,29 @@ namespace troothy.Controllers {
 
     }
 
-    export class PoliticianController {
+    export class AddDetailController {
 
+    }
+
+    export class PoliticianDetailController {
+      public politician
+      public id
+      public $state
+
+      public addDetail(id) {
+      this.politician._id = this.id
+      this.id = {};
+      this.$state.go('addDetail', {id: this.id} );
+      }
+
+
+
+      constructor(
+        public $stateParams,
+        private politicianService
+      ) {
+        this.id = $stateParams['id'];
+      }
     }
 
 }

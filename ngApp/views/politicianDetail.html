@@ -1,0 +1,46 @@
+<div class="container" >
+
+
+<h2>Politician Detail</h2>
+
+<ul>
+  <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}}</li>
+</ul>
+
+<p>Responsible Spending</p><br>
+<p>{{p.spendMssg}}</p><br>
+<hr>
+
+<p>Military</p><br>
+<p>{{p.militMssg}}</p><br>
+<hr>
+
+<p>Immigration</p><br>
+<p>{{p.immigMssg}}</p><br>
+<hr>
+
+<p>Science/Technology</p><br>
+<p>{{p.scitechMssg}}</p><br>
+<hr>
+
+<p>Education</p><br>
+<p>{{p.eduMssg}}</p><br>
+<hr>
+
+<p>Social Issues</p><br>
+<p>{{p.socialMssg}}</p><br>
+<hr>
+
+<p>Environment</p><br>
+<p>{{p.envirMssg}}</p><br>
+<hr>
+
+<p>Class Fairness</p><br>
+<p>{{p.classMssg}}</p><br>
+<hr>
+
+<a ng-click="vm.addDetail(p._id)">Add Detail</a>
+<br>
+<a href="/addDetail/{{p._id}}">Update Category</a>
+
+</div>

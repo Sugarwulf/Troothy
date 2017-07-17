@@ -1,8 +1,10 @@
-<!-- <h2>Home</h2> -->
+<div class="container">
+
+
 <h1>Troothy</h1>
 
 <h5>Welcome to Troothy.  Here politicians are not evaluated by their campaign promises.
-They are evaluated by their actions and their tangible impact on society, for better or for worse.</h5>
+They are evaluated by their votes, their actions, and their tangible impact on society, for better or for worse.</h5>
 
 <hr>
 <h5>Politicians</h5>
@@ -16,13 +18,15 @@ They are evaluated by their actions and their tangible impact on society, for be
 </select>
 
 <ul>
-  <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}} <a href="/politician/{{p._id}}">--Select--</a><br><a href="/edit/{{p._id}}">Edit |</a> <a ng-click="vm.deletePolitician(p._id)">Delete</a></li>
+  <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}} <a href="/politicianDetail/{{p._id}}">--Select--</a><br><a href="/edit/{{p._id}}">Edit |</a> <a ng-click="vm.deletePolitician(p._id)">Delete</a></li>
 </ul>
 
 <a href="/add">Add politician</a>
 
 <div style="padding-top: 20px;">
   <a href="/">Logout</a>
+</div>
+
 </div>
 
 
