@@ -135,18 +135,13 @@ namespace troothy.Controllers {
 
     }
 
-    export class AddDetailController {
-
-    }
 
     export class PoliticianDetailController {
       public politician
       public id
-      public $state
 
-      public addDetail(id) {
+      public addDetail() {
       this.politician._id = this.id
-      this.id = {};
       this.$state.go('addDetail', {id: this.id} );
       }
 
@@ -154,10 +149,51 @@ namespace troothy.Controllers {
 
       constructor(
         public $stateParams,
-        private politicianService
+        private politicianService,
+        public $state
       ) {
+        this.politician = {};
         this.id = $stateParams['id'];
       }
     }
 
+    export class AddDetailController {
+      public politician
+      public id
+      public addPolitician() {
+        this.politicianService.savePolitician(this.politician);
+      }
+
+      public viewUpdates() {
+      this.politician._id = this.id
+      this.$state.go('politicianDetail', {id: this.id} );
+      }
+
+      constructor(
+        public $stateParams,
+        private politicianService,
+        public $state
+      ) {
+        this.politician = {};
+        this.id = $stateParams['id'];
+      }
+
+    }
+
+    export class EditDetailController {
+      public politician
+      public id
+      public editPolitician() {
+      this.politician._id = this.id
+      this.politicianService.savePolitician(this.politician)
+      }
+
+      constructor(
+        public $stateParams,
+        private politicianService
+      ) {
+        this.id = $stateParams['id'];
+      }
+
+    }
 }

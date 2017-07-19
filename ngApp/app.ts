@@ -45,6 +45,12 @@ namespace troothy.Controllers {
               controller: troothy.Controllers.AddDetailController,
               controllerAs: 'vm'
           })
+          .state('editDetail', {
+              url: '/editDetail/:id',
+              templateUrl: '/ngApp/views/editDetail.html',
+              controller: troothy.Controllers.EditDetailController,
+              controllerAs: 'vm'
+          })
 
           .state('politicianDetail', {
               url: '/politicianDetail/:id',
