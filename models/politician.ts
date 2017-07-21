@@ -13,7 +13,8 @@ let politicianSchema = new mongoose.Schema({
   eduMssg: String,
   socialMssg: String,
   envirMssg: String,
-  classMssg: String
+  classMssg: String,
+  xFactorMssg: String
 
 
 });

@@ -56,7 +56,12 @@ var troothy;
                 });
             };
             HomeController.prototype.deletePolitician = function (politicianId) {
-                this.politicianService.removePolitician(politicianId);
+                if (this.payload.role === 'admin') {
+                    this.politicianService.removePolitician(politicianId);
+                }
+                else {
+                    alert('Denied. Admins Only!');
+                }
             };
             return HomeController;
         }());
@@ -64,9 +69,19 @@ var troothy;
         var AddPoliticianController = (function () {
             function AddPoliticianController(politicianService) {
                 this.politicianService = politicianService;
+                var token = window.localStorage['token'];
+                if (token) {
+                    this.payload = JSON.parse(window.atob(token.split('.')[1]));
+                    console.log(this.payload);
+                }
             }
             AddPoliticianController.prototype.addPolitician = function () {
-                this.politicianService.savePolitician(this.politician);
+                if (this.payload.role === 'admin') {
+                    this.politicianService.savePolitician(this.politician);
+                }
+                else {
+                    alert('Denied. Admins Only!');
+                }
             };
             return AddPoliticianController;
         }());
@@ -76,25 +91,43 @@ var troothy;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.id = $stateParams['id'];
+                var token = window.localStorage['token'];
+                if (token) {
+                    this.payload = JSON.parse(window.atob(token.split('.')[1]));
+                    console.log(this.payload);
+                }
             }
             EditPoliticianController.prototype.editPolitician = function () {
-                this.politician._id = this.id;
-                this.politicianService.savePolitician(this.politician);
+                if (this.payload.role === 'admin') {
+                    this.politician._id = this.id;
+                    this.politicianService.savePolitician(this.politician);
+                }
+                else {
+                    alert('Denied. Admins only!');
+                }
             };
             return EditPoliticianController;
         }());
         Controllers.EditPoliticianController = EditPoliticianController;
         var PoliticianDetailController = (function () {
             function PoliticianDetailController($stateParams, politicianService, $state) {
+                var _this = this;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.$state = $state;
                 this.politician = {};
                 this.id = $stateParams['id'];
+                this.politician._id = this.id;
+                this.politicianService.get(this.id).then(function (result) {
+                    _this.politicians = result;
+                    console.log(result);
+                });
             }
             PoliticianDetailController.prototype.addDetail = function () {
                 this.politician._id = this.id;
                 this.$state.go('addDetail', { id: this.id });
+            };
+            PoliticianDetailController.prototype.getPoliticians = function (id) {
             };
             return PoliticianDetailController;
         }());

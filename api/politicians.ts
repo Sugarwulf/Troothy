@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
   if(req.body._id) {
     Politician.findByIdAndUpdate(req.body._id,
       {"$set": {"name": req.body.name, "title": req.body.title, "state": req.body.state, "spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
-      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg }}, {"new": true, "upsert": true},
+      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg }}, {"new": true, "upsert": true},
      function (err, updatedCategory) {
        if (err) {
          res.send(err)
@@ -55,6 +55,15 @@ router.get('/:tag', (req, res) => {
     }
   });
 })
+
+
+//Get a single politician by id
+
+// router.get('/:id', (req, res) => {
+//   Politician.findById(req.params['id']).then((politician) => {
+//     res.json(politician);
+//   });
+// });
 
 // Delete
 router.delete('/:tag', (req, res) => {

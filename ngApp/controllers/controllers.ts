@@ -52,43 +52,19 @@ namespace troothy.Controllers {
       public politicians
       public category
 
-      // public create() {
-      //   if(this.payload.role === 'admin') {
-      //     alert('Success!');
-      //   } else {
-      //     alert('Denied. admins only.')
-      //   }
-      // }
-
-      // public read() {
-      //   alert('Success!');
-      // }
-
       public getPoliticians() {
         this.politicianService.getPoliticians(this.category).then((result) => {
           this.politicians = result;
         })
       }
 
-      // public update() {
-      //   if(this.payload.role === 'admin') {
-      //     alert('Success!');
-      //   } else {
-      //     alert('Denied. admins only.')
-      //   }
-      // }
-
       public deletePolitician(politicianId) {
+        if(this.payload.role === 'admin') {
         this.politicianService.removePolitician(politicianId);
+      } else {
+        alert('Denied. Admins Only!')
       }
-
-      // public delete() {
-      //   if(this.payload.role === 'admin') {
-      //     alert('Success!');
-      //   } else {
-      //     alert('Denied. admins only.')
-      //   }
-      // }
+    }
 
       constructor(
         private politicianService
@@ -105,32 +81,57 @@ namespace troothy.Controllers {
 
     export class AddPoliticianController {
       public politician
+      public payload
 
       public addPolitician() {
+        if (this.payload.role === 'admin') {
       this.politicianService.savePolitician(this.politician);
-      }
+      } else {
+      alert('Denied. Admins Only!')
+        }
+    }
 
       constructor(
         private politicianService
       ) {
+        let token = window.localStorage['token'];
+
+        if (token) {
+          this.payload = JSON.parse(window.atob(token.split('.')[1]));
+          console.log(this.payload);
+        }
 
       }
 
     }
 
     export class EditPoliticianController {
+      public payload
       public politician
       public id
+
       public editPolitician() {
+        if (this.payload.role === 'admin') {
       this.politician._id = this.id
       this.politicianService.savePolitician(this.politician)
-      }
+      } else {
+      alert('Denied. Admins only!')
+       }
+    }
 
       constructor(
         public $stateParams,
         private politicianService
       ) {
         this.id = $stateParams['id'];
+
+        let token = window.localStorage['token'];
+
+        if (token) {
+          this.payload = JSON.parse(window.atob(token.split('.')[1]));
+          console.log(this.payload);
+        }
+
       }
 
     }
@@ -139,10 +140,15 @@ namespace troothy.Controllers {
     export class PoliticianDetailController {
       public politician
       public id
+      public politicians
 
       public addDetail() {
       this.politician._id = this.id
       this.$state.go('addDetail', {id: this.id} );
+      }
+
+      public getPoliticians(id) {
+
       }
 
 
@@ -154,6 +160,12 @@ namespace troothy.Controllers {
       ) {
         this.politician = {};
         this.id = $stateParams['id'];
+        this.politician._id = this.id
+        this.politicianService.get(this.id).then((result) => {
+          this.politicians = result;
+          console.log(result);
+        })
+
       }
     }
 

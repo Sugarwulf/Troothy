@@ -1,7 +1,50 @@
+<div class="container">
+
+
 <h2>Edit politician</h2>
 
 <input type="text" placeholder="updated name" ng-model="vm.politician.name">
 <input type="text" placeholder="updated title" ng-model="vm.politician.title">
-<input type="text" placeholder="updated state" ng-model="vm.politician.state">
+<input type="text" placeholder="updated state" ng-model="vm.politician.state"> <br>
+<hr>
+
+<p>Responsible Spending</p>
+<input type="textarea" name="SpendingDetail" cols="50" rows="20" ng-model="vm.politician.spendMssg"><br>
+<hr>
+
+<p>Military</p>
+<input type="textarea" name="Military" cols="50" rows="20" ng-model="vm.politician.militMssg"><br>
+<hr>
+
+<p>Immigration</p>
+<input type="textarea" name="Immigration" cols="50" rows="20" ng-model="vm.politician.immigMssg"><br>
+<hr>
+
+<p>Science/Technology</p>
+<input type="textarea" name="Science/Technology" cols="50" rows="20" ng-model="vm.politician.scitechMssg"><br>
+<hr>
+
+<p>Education</p>
+<input type="textarea" name="Education" cols="50" rows="20" ng-model="vm.politician.eduMssg"><br>
+<hr>
+
+<p>Social Issues</p>
+<input type="textarea" name="Social Issues" cols="50" rows="20" ng-model="vm.politician.socialMssg"><br>
+<hr>
+
+<p>Environment</p>
+<input type="textarea" name="Environment" cols="50" rows="20" ng-model="vm.politician.envirMssg"><br>
+<hr>
+
+<p>Class Fairness</p>
+<input type="textarea" name="Class Fairness" cols="50" rows="20" ng-model="vm.politician.classMssg"><br>
+<hr>
+
+<p>X-Factor</p>
+<input type="textarea" name="X-Factor" cols="50" rows="20" ng-model="vm.politician.xFactorMssg"><br>
+<hr>
 
 <button type="button" ng-click="vm.editPolitician()">Edit</button>
+
+
+</div>

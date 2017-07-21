@@ -1,9 +1,16 @@
-<div class="container" ngController="HomeController as vm">
+<div class="container" >
+  <!-- <div class="container" ngController="AddDetailController as vm"> -->
+
 
 
 <h2>Add Politician Detail</h2>
 
-<h5>{{p.name}} | {{p.title}} | {{p.state}}</h5>
+<ul>
+  <li ng-repeat="p in vm.politicians"> {{p.name}} | {{p.title}} | {{p.state}}
+
+  </li>
+</ul>
+
 
 <p>Responsible Spending</p>
 <input type="textarea" name="SpendingDetail" cols="50" rows="20" ng-model="vm.politician.spendMssg"><br>
@@ -36,6 +43,8 @@
 <p>Class Fairness</p>
 <input type="textarea" name="Class Fairness" cols="50" rows="20" ng-model="vm.politician.classMssg"> <br>
 <hr>
+
+<button type="button" ng-click="vm.editPolitician()">Edit/Add Detail</button>
 
 <a href="/home">Back Home</a>
 <br>

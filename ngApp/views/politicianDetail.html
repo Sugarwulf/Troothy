@@ -3,41 +3,68 @@
 
 <h2>Politician Detail</h2>
 
+<!-- <button ng-click="vm.getPoliticians(p._id)" class="btn btn-primary">View Politician</button> -->
+
 <ul>
   <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}}</li>
 </ul>
 
+
+
 <p>Responsible Spending</p><br>
 <p>{{p.spendMssg}}</p><br>
+<p>Spend score</p>
+
 <hr>
 
 <p>Military</p><br>
 <p>{{p.militMssg}}</p><br>
+<p>Military score</p>
+
 <hr>
 
 <p>Immigration</p><br>
 <p>{{p.immigMssg}}</p><br>
+<p>Immigration score</p>
+
 <hr>
 
 <p>Science/Technology</p><br>
 <p>{{p.scitechMssg}}</p><br>
+<p>Sci/Tech score</p>
+
 <hr>
 
 <p>Education</p><br>
 <p>{{p.eduMssg}}</p><br>
+<p>Education score</p>
+
 <hr>
 
 <p>Social Issues</p><br>
 <p>{{p.socialMssg}}</p><br>
+<p>Social score</p>
+
 <hr>
 
 <p>Environment</p><br>
 <p>{{p.envirMssg}}</p><br>
+<p>Environmental score</p>
+
 <hr>
 
 <p>Class Fairness</p><br>
 <p>{{p.classMssg}}</p><br>
+<p>Class Fairness score</p>
+
 <hr>
+
+<p>X-Factor</p><br>
+<p>{{p.xFactorMssg}}</p><br>
+<p>Trooth score</p>
+
+<hr>
+
 
 <a ng-click="vm.addDetail(p._id)">Add Detail</a>
 <br>

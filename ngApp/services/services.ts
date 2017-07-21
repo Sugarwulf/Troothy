@@ -24,6 +24,10 @@ namespace troothy.Services {
       export class PoliticianService {
         public PoliticianResource
 
+        public get(id) {
+        return this.PoliticianResource.get({id:id});
+      }
+
         public savePolitician(politician) {
          return this.PoliticianResource.save(politician);
         }

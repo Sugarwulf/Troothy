@@ -23,6 +23,9 @@ var troothy;
                 this.$resource = $resource;
                 this.PoliticianResource = $resource('/api/politicians/:tag');
             }
+            PoliticianService.prototype.get = function (id) {
+                return this.PoliticianResource.get({ id: id });
+            };
             PoliticianService.prototype.savePolitician = function (politician) {
                 return this.PoliticianResource.save(politician);
             };
