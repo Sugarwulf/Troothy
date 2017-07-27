@@ -109,11 +109,13 @@ namespace troothy.Controllers {
       public payload
       public politician
       public id
+      // public politicians
 
       public editPolitician() {
         if (this.payload.role === 'admin') {
       this.politician._id = this.id
       this.politicianService.savePolitician(this.politician)
+      console.log(this.politician);
       } else {
       alert('Denied. Admins only!')
        }
@@ -124,6 +126,7 @@ namespace troothy.Controllers {
         private politicianService
       ) {
         this.id = $stateParams['id'];
+        // this.politicians = this.politicianService.get(this.id);
 
         let token = window.localStorage['token'];
 
@@ -140,38 +143,33 @@ namespace troothy.Controllers {
     export class PoliticianDetailController {
       public politician
       public id
-      public politicians
+      public details
 
       public addDetail() {
+      this.politician = {}
       this.politician._id = this.id
       this.$state.go('addDetail', {id: this.id} );
       }
-
-      public getPoliticians(id) {
-
-      }
-
-
 
       constructor(
         public $stateParams,
         private politicianService,
         public $state
       ) {
-        this.politician = {};
         this.id = $stateParams['id'];
-        this.politician._id = this.id
-        this.politicianService.get(this.id).then((result) => {
-          this.politicians = result;
-          console.log(result);
-        })
-
+        this.details = this.politicianService.get(this.id);
+        console.log(this.details)
       }
     }
 
+
+
+
     export class AddDetailController {
       public politician
+      public politicians
       public id
+
       public addPolitician() {
         this.politicianService.savePolitician(this.politician);
       }
@@ -188,6 +186,8 @@ namespace troothy.Controllers {
       ) {
         this.politician = {};
         this.id = $stateParams['id'];
+        this.politicians = this.politicianService.get(this.id);
+
       }
 
     }
@@ -195,6 +195,8 @@ namespace troothy.Controllers {
     export class EditDetailController {
       public politician
       public id
+      public politicians
+
       public editPolitician() {
       this.politician._id = this.id
       this.politicianService.savePolitician(this.politician)
@@ -205,6 +207,8 @@ namespace troothy.Controllers {
         private politicianService
       ) {
         this.id = $stateParams['id'];
+        this.politicians = this.politicianService.get(this.id);
+
       }
 
     }

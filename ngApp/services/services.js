@@ -22,9 +22,11 @@ var troothy;
             function PoliticianService($resource) {
                 this.$resource = $resource;
                 this.PoliticianResource = $resource('/api/politicians/:tag');
+                this.DetailsResource = $resource('/api/politicians/details/:id');
             }
             PoliticianService.prototype.get = function (id) {
-                return this.PoliticianResource.get({ id: id });
+                console.log(id);
+                return this.DetailsResource.query({ id: id });
             };
             PoliticianService.prototype.savePolitician = function (politician) {
                 return this.PoliticianResource.save(politician);

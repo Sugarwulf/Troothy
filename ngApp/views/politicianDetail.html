@@ -3,66 +3,53 @@
 
 <h2>Politician Detail</h2>
 
-<!-- <button ng-click="vm.getPoliticians(p._id)" class="btn btn-primary">View Politician</button> -->
-
-<ul>
-  <li ng-repeat="p in vm.politicians">{{p.name}} | {{p.title}} | {{p.state}}</li>
-</ul>
+<!-- <input type="text" placeholder="name" ng-model="vm.politician.name">
+<input type="text" placeholder="title" ng-model="vm.politician.title">
+<input type="text" placeholder="state" ng-model="vm.politician.state"> -->
 
 
+{{vm.details.name}} | {{vm.details.title}} | {{vm.details.state}}
 
-<p>Responsible Spending</p><br>
-<p>{{p.spendMssg}}</p><br>
-<p>Spend score</p>
 
+
+
+<p>Responsible Spending</p>
+<p>{{vm.details.spendMssg}}</p>
 <hr>
 
-<p>Military</p><br>
-<p>{{p.militMssg}}</p><br>
-<p>Military score</p>
-
+<p>Military</p>
+<p>{{vm.details.militMssg}}</p>
 <hr>
 
-<p>Immigration</p><br>
-<p>{{p.immigMssg}}</p><br>
-<p>Immigration score</p>
-
+<p>Immigration</p>
+<p>{vm.details.immigMssg}}</p>
 <hr>
 
-<p>Science/Technology</p><br>
-<p>{{p.scitechMssg}}</p><br>
-<p>Sci/Tech score</p>
-
+<p>Science/Technology</p>
+<p>{{vm.details.scitechMssg}}</p>
 <hr>
 
-<p>Education</p><br>
-<p>{{p.eduMssg}}</p><br>
-<p>Education score</p>
-
+<p>Education</p>
+<p>{{vm.details.eduMssg}}</p>
 <hr>
 
-<p>Social Issues</p><br>
-<p>{{p.socialMssg}}</p><br>
-<p>Social score</p>
-
+<p>Social Issues</p>
+<p>{{vm.details.socialMssg}}</p>
 <hr>
 
-<p>Environment</p><br>
-<p>{{p.envirMssg}}</p><br>
-<p>Environmental score</p>
-
+<p>Environment</p>
+<p>{{vm.details.envirMssg}}</p>
 <hr>
 
-<p>Class Fairness</p><br>
-<p>{{p.classMssg}}</p><br>
-<p>Class Fairness score</p>
-
+<p>Class Fairness</p>
+<p>{{vm.details.classMssg}}</p>
 <hr>
 
-<p>X-Factor</p><br>
-<p>{{p.xFactorMssg}}</p><br>
-<p>Trooth score</p>
+<button type="button" ng-click="vm.editPolitician()">Edit/Add Detail</button>
 
+<a href="/home">Back Home</a>
+<br>
+<br>
 <hr>
 
 

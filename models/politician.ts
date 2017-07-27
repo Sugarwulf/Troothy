@@ -6,7 +6,7 @@ let politicianSchema = new mongoose.Schema({
   name: String,
   title: String,
   state: String,
-  spendMssg: String,
+  spendMssg: String, 
   militMssg: String,
   immigMssg: String,
   scitechMssg: String,

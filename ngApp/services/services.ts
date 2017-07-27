@@ -22,10 +22,13 @@ namespace troothy.Services {
       angular.module('troothy').service('userService', UserService);
 
       export class PoliticianService {
+        // public id
         public PoliticianResource
+        public DetailsResource
 
         public get(id) {
-        return this.PoliticianResource.get({id:id});
+          console.log(id)
+        return this.DetailsResource.query({id:id})
       }
 
         public savePolitician(politician) {
@@ -43,6 +46,7 @@ namespace troothy.Services {
           public $resource
         ) {
         this.PoliticianResource = $resource('/api/politicians/:tag');
+        this.DetailsResource = $resource('/api/politicians/details/:id');
         }
 
       }

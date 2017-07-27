@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
   if(req.body._id) {
     Politician.findByIdAndUpdate(req.body._id,
       {"$set": {"name": req.body.name, "title": req.body.title, "state": req.body.state, "spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
-      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg }}, {"new": true, "upsert": true},
+      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg }}, {"new": true, "upsert": false},
      function (err, updatedCategory) {
        if (err) {
          res.send(err)
@@ -45,8 +45,9 @@ router.post('/', (req, res) => {
 }
 })
 
-// Read
+// Read by category
 router.get('/:tag', (req, res) => {
+  console.log('hello')
   Category.findOne({name:req.params['tag']}).populate('politicians').exec(function (err, results: any) {
     if (err) {
       res.send(err)
@@ -57,13 +58,19 @@ router.get('/:tag', (req, res) => {
 })
 
 
-//Get a single politician by id
+// READ: Get a single politician by id
 
-// router.get('/:id', (req, res) => {
-//   Politician.findById(req.params['id']).then((politician) => {
-//     res.json(politician);
-//   });
-// });
+router.get('/details/:id', (req, res) => {
+  Politician.find({_id: req.params['id']}, ((err, result) => {
+    console.log(result);
+    if(err) {
+      res.send(err)
+    } else {
+      res.json(result);
+    }
+  }))
+});
+
 
 // Delete
 router.delete('/:tag', (req, res) => {

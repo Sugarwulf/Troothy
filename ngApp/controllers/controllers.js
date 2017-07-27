@@ -101,6 +101,7 @@ var troothy;
                 if (this.payload.role === 'admin') {
                     this.politician._id = this.id;
                     this.politicianService.savePolitician(this.politician);
+                    console.log(this.politician);
                 }
                 else {
                     alert('Denied. Admins only!');
@@ -111,23 +112,17 @@ var troothy;
         Controllers.EditPoliticianController = EditPoliticianController;
         var PoliticianDetailController = (function () {
             function PoliticianDetailController($stateParams, politicianService, $state) {
-                var _this = this;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.$state = $state;
-                this.politician = {};
                 this.id = $stateParams['id'];
-                this.politician._id = this.id;
-                this.politicianService.get(this.id).then(function (result) {
-                    _this.politicians = result;
-                    console.log(result);
-                });
+                this.details = this.politicianService.get(this.id);
+                console.log(this.details);
             }
             PoliticianDetailController.prototype.addDetail = function () {
+                this.politician = {};
                 this.politician._id = this.id;
                 this.$state.go('addDetail', { id: this.id });
-            };
-            PoliticianDetailController.prototype.getPoliticians = function (id) {
             };
             return PoliticianDetailController;
         }());
@@ -139,6 +134,7 @@ var troothy;
                 this.$state = $state;
                 this.politician = {};
                 this.id = $stateParams['id'];
+                this.politicians = this.politicianService.get(this.id);
             }
             AddDetailController.prototype.addPolitician = function () {
                 this.politicianService.savePolitician(this.politician);
@@ -155,6 +151,7 @@ var troothy;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.id = $stateParams['id'];
+                this.politicians = this.politicianService.get(this.id);
             }
             EditDetailController.prototype.editPolitician = function () {
                 this.politician._id = this.id;
