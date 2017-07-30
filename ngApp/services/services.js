@@ -26,7 +26,7 @@ var troothy;
             }
             PoliticianService.prototype.get = function (id) {
                 console.log(id);
-                return this.DetailsResource.query({ id: id });
+                return this.DetailsResource.get({ id: id });
             };
             PoliticianService.prototype.savePolitician = function (politician) {
                 return this.PoliticianResource.save(politician);

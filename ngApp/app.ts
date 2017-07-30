@@ -38,24 +38,17 @@ namespace troothy.Controllers {
               controller: troothy.Controllers.EditPoliticianController,
               controllerAs: 'vm'
           })
-
-          .state('addDetail', {
-              url: '/addDetail/:id',
-              templateUrl: '/ngApp/views/addDetail.html',
-              controller: troothy.Controllers.AddDetailController,
-              controllerAs: 'vm'
+          .state('politicianDetail', {
+            url: '/politicianDetail/:id',
+            templateUrl: '/ngApp/views/politicianDetail.html',
+            controller: troothy.Controllers.PoliticianDetailController,
+            controllerAs: 'vm'
           })
+
           .state('editDetail', {
               url: '/editDetail/:id',
               templateUrl: '/ngApp/views/editDetail.html',
               controller: troothy.Controllers.EditDetailController,
-              controllerAs: 'vm'
-          })
-
-          .state('politicianDetail', {
-              url: '/politicianDetail/:id',
-              templateUrl: '/ngApp/views/politicianDetail.html',
-              controller: troothy.Controllers.PoliticianDetailController,
               controllerAs: 'vm'
           })
           .state('notFound', {

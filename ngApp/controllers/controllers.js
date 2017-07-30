@@ -117,45 +117,31 @@ var troothy;
                 this.$state = $state;
                 this.id = $stateParams['id'];
                 this.details = this.politicianService.get(this.id);
-                console.log(this.details);
             }
             PoliticianDetailController.prototype.addDetail = function () {
                 this.politician = {};
                 this.politician._id = this.id;
-                this.$state.go('addDetail', { id: this.id });
+                this.$state.go('editDetail', { id: this.id });
             };
             return PoliticianDetailController;
         }());
         Controllers.PoliticianDetailController = PoliticianDetailController;
-        var AddDetailController = (function () {
-            function AddDetailController($stateParams, politicianService, $state) {
+        var EditDetailController = (function () {
+            function EditDetailController($stateParams, politicianService, $state) {
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.$state = $state;
                 this.politician = {};
                 this.id = $stateParams['id'];
-                this.politicians = this.politicianService.get(this.id);
+                this.details = this.politicianService.get(this.id);
             }
-            AddDetailController.prototype.addPolitician = function () {
+            EditDetailController.prototype.editDetails = function () {
+                this.politician._id = this.id;
                 this.politicianService.savePolitician(this.politician);
             };
-            AddDetailController.prototype.viewUpdates = function () {
+            EditDetailController.prototype.viewUpdates = function () {
                 this.politician._id = this.id;
                 this.$state.go('politicianDetail', { id: this.id });
-            };
-            return AddDetailController;
-        }());
-        Controllers.AddDetailController = AddDetailController;
-        var EditDetailController = (function () {
-            function EditDetailController($stateParams, politicianService) {
-                this.$stateParams = $stateParams;
-                this.politicianService = politicianService;
-                this.id = $stateParams['id'];
-                this.politicians = this.politicianService.get(this.id);
-            }
-            EditDetailController.prototype.editPolitician = function () {
-                this.politician._id = this.id;
-                this.politicianService.savePolitician(this.politician);
             };
             return EditDetailController;
         }());

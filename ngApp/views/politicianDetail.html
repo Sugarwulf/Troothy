@@ -3,15 +3,9 @@
 
 <h2>Politician Detail</h2>
 
-<!-- <input type="text" placeholder="name" ng-model="vm.politician.name">
-<input type="text" placeholder="title" ng-model="vm.politician.title">
-<input type="text" placeholder="state" ng-model="vm.politician.state"> -->
-
-
+<!-- reference a whole new endpoint and controller with this angular code below -->
 {{vm.details.name}} | {{vm.details.title}} | {{vm.details.state}}
-
-
-
+<hr>
 
 <p>Responsible Spending</p>
 <p>{{vm.details.spendMssg}}</p>
@@ -22,7 +16,7 @@
 <hr>
 
 <p>Immigration</p>
-<p>{vm.details.immigMssg}}</p>
+<p>{{vm.details.immigMssg}}</p>
 <hr>
 
 <p>Science/Technology</p>
@@ -45,16 +39,9 @@
 <p>{{vm.details.classMssg}}</p>
 <hr>
 
-<button type="button" ng-click="vm.editPolitician()">Edit/Add Detail</button>
-
-<a href="/home">Back Home</a>
-<br>
+<button type="button" class="button"><a ng-click="vm.addDetail(p._id)">Update details</a></button>
 <br>
 <hr>
-
-
-<a ng-click="vm.addDetail(p._id)">Add Detail</a>
-<br>
-<a href="/addDetail/{{p._id}}">Update Category</a>
-
+<button type="button" class="button"><a href="/home">Back Home</a></button>
+<hr>
 </div>

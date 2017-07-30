@@ -25,6 +25,14 @@ router.post('/', (req, res) => {
   politician.name = req.body.name;
   politician.title = req.body.title;
   politician.state = req.body.state;
+  politician.militMssg= req.body.militMssg;
+  politician.scitechMssg= req.body.scitechMssg;
+  politician.eduMssg= req.body.eduMssg;
+  politician.socialMssg= req.body.socialMssg;
+  politician.envirMssg= req.body.envirMssg;
+  politician.classMssg= req.body.classMssg;
+  politician.xFactorMssg= req.body.xFactorMssg;
+
   politician.save((err, newPolitician) => {
     Category.findOne({name:req.body.category}).exec((err, result:any) => {
       if (err) {
@@ -62,14 +70,16 @@ router.get('/:tag', (req, res) => {
 
 router.get('/details/:id', (req, res) => {
   Politician.find({_id: req.params['id']}, ((err, result) => {
-    console.log(result);
+    // console.log(result);
     if(err) {
       res.send(err)
     } else {
-      res.json(result);
+      res.json(result[0]); //ask why this index position
     }
   }))
 });
+
+
 
 
 // Delete

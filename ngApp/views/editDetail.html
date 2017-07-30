@@ -3,51 +3,47 @@
 
 <h2>Edit Politician Detail</h2>
 
-<h5>{{p.name}} | {{p.title}} | {{p.state}}</h5>
+<p>{{vm.details.name}} | {{vm.details.title}} | {{vm.details.state}}</p>
+<hr>
+<h4>Add or update details in the text boxes below.  If your contributions or edits are "troothy" they shall remain.</h4>
+<hr>
 
 <p>Responsible Spending</p>
-<input type="textarea" name="SpendingDetail" cols="50" rows="20" ng-model="vm.politician.spendMssg"><br>
-<p>{{p.spendMssg}}</p>
+<textarea name="SpendingDetail" rows="3" cols="120" ng-model="vm.details.spendMssg"></textarea>
 <hr>
 
 <p>Military</p>
-<input type="textarea" name="Military" cols="50" rows="20" ng-model="vm.politician.militMssg"><br>
-<p>{{p.militMssg}}</p>
+<textarea name="Military" rows="3" cols="120" ng-model="vm.details.militMssg"></textarea>
 <hr>
 
 <p>Immigration</p>
-<input type="textarea" name="Immigration" cols="50" rows="20" ng-model="vm.politician.immigMssg"><br>
-<p>{{p.immigMssg}}</p>
+<textarea name="Immigration" rows="3" cols="120" ng-model="vm.details.immigMssg"></textarea>
 <hr>
 
 <p>Science/Technology</p>
-<input type="textarea" name="Science/Technology" cols="50" rows="20" ng-model="vm.politician.scitechMssg"><br>
-<p>{{p.scitechMssg}}</p>
+<textarea name="Military" rows="3" cols="120" ng-model="vm.details.scitechMssg"></textarea>
 <hr>
 
 <p>Education</p>
-<input type="textarea" name="Education" cols="50" rows="20" ng-model="vm.politician.eduMssg"><br>
-<p>{{p.eduMssg}}</p>
+<textarea name="Education" rows="3" cols="120" ng-model="vm.details.eduMssg"></textarea>
 <hr>
 
 <p>Social Issues</p>
-<input type="textarea" name="Social Issues" cols="50" rows="20" ng-model="vm.politician.socialMssg"><br>
-<p>{{p.socialMssg}}</p>
+<textarea name="Social Issues" rows="3" cols="120" ng-model="vm.details.socialMssg"></textarea>
 <hr>
 
 <p>Environment</p>
-<input type="textarea" name="Environment" cols="50" rows="20" ng-model="vm.politician.envirMssg"> <br>
-<p>{{p.envirMssg}}</p>
+<textarea name="Environment" rows="3" cols="120" ng-model="vm.details.envirMssg"></textarea>
 <hr>
 
 <p>Class Fairness</p>
-<input type="textarea" name="Class Fairness" cols="50" rows="20" ng-model="vm.politician.classMssg"> <br>
-<p>{{p.classMssg}}</p>
+<textarea name="Class Fairness" rows="3" cols="120" ng-model="vm.details.classMssg"></textarea>
 <hr>
-
-<a href="/home">Back Home</a>
+<button class="button" ng-click="vm.editDetails()">Save changes</button>
+<hr>
+<button class="button" name="viewUpdates"><a ng-click="vm.viewUpdates(p._id)">View updates</a></button>
 <br>
-<br>
-<a ng-click="vm.viewUpdates(p._id)">View updates</a>
+<hr>
+<button class="button" name="home"><a href="/home">Back Home</a></button>
 
 </div>

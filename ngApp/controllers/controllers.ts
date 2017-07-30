@@ -134,9 +134,7 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
-
       }
-
     }
 
 
@@ -148,7 +146,7 @@ namespace troothy.Controllers {
       public addDetail() {
       this.politician = {}
       this.politician._id = this.id
-      this.$state.go('addDetail', {id: this.id} );
+      this.$state.go('editDetail', {id: this.id} );
       }
 
       constructor(
@@ -158,56 +156,38 @@ namespace troothy.Controllers {
       ) {
         this.id = $stateParams['id'];
         this.details = this.politicianService.get(this.id);
-        console.log(this.details)
+        // console.log(this.details)
       }
     }
 
-
-
-
-    export class AddDetailController {
+    export class EditDetailController {
       public politician
-      public politicians
       public id
+      public details
 
-      public addPolitician() {
-        this.politicianService.savePolitician(this.politician);
+      // public editDetails() {
+      // this.politician._id = this.id
+      // this.politicianService.savePolitician(this.politician)
+      // }
+
+      public editDetails() {
+      this.politician._id = this.id
+      this.politicianService.savePolitician(this.politician)
       }
 
       public viewUpdates() {
-      this.politician._id = this.id
-      this.$state.go('politicianDetail', {id: this.id} );
-      }
+        this.politician._id = this.id
+        this.$state.go('politicianDetail', {id: this.id} );
+         }
 
       constructor(
         public $stateParams,
         private politicianService,
         public $state
       ) {
-        this.politician = {};
+        this.politician = {}
         this.id = $stateParams['id'];
-        this.politicians = this.politicianService.get(this.id);
-
-      }
-
-    }
-
-    export class EditDetailController {
-      public politician
-      public id
-      public politicians
-
-      public editPolitician() {
-      this.politician._id = this.id
-      this.politicianService.savePolitician(this.politician)
-      }
-
-      constructor(
-        public $stateParams,
-        private politicianService
-      ) {
-        this.id = $stateParams['id'];
-        this.politicians = this.politicianService.get(this.id);
+        this.details = this.politicianService.get(this.id);
 
       }
 
