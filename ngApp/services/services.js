@@ -31,6 +31,9 @@ var troothy;
             PoliticianService.prototype.savePolitician = function (politician) {
                 return this.PoliticianResource.save(politician);
             };
+            PoliticianService.prototype.saveDetails = function (details) {
+                return this.DetailsResource.save(details);
+            };
             PoliticianService.prototype.getPoliticians = function (category) {
                 return this.PoliticianResource.query({ tag: category }).$promise;
             };

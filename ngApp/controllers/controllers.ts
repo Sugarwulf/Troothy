@@ -100,9 +100,7 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
-
       }
-
     }
 
     export class EditPoliticianController {
@@ -137,7 +135,6 @@ namespace troothy.Controllers {
       }
     }
 
-
     export class PoliticianDetailController {
       public politician
       public id
@@ -170,9 +167,15 @@ namespace troothy.Controllers {
       // this.politicianService.savePolitician(this.politician)
       // }
 
+      // public editDetails() {
+      // this.politician._id = this.id
+      // this.politicianService.saveDetails(this.politician)
+      // }
+
       public editDetails() {
-      this.politician._id = this.id
-      this.politicianService.savePolitician(this.politician)
+      this.details._id = this.id
+      this.politicianService.saveDetails(this.details)
+      console.log(this.details)
       }
 
       public viewUpdates() {
@@ -188,8 +191,6 @@ namespace troothy.Controllers {
         this.politician = {}
         this.id = $stateParams['id'];
         this.details = this.politicianService.get(this.id);
-
       }
-
     }
 }

@@ -47,6 +47,17 @@ router.post('/', function (req, res) {
         });
     }
 });
+router.post('/details/:id', function (req, res) {
+    politician_1.default.findByIdAndUpdate(req.body._id, { "$set": { "spendMssg": req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg": req.body.scitechMssg, "eduMssg": req.body.eduMssg,
+            "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg } }, { "new": true, "upsert": false }, function (err, updatedCategory) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            res.send(updatedCategory);
+        }
+    });
+});
 router.get('/:tag', function (req, res) {
     console.log('hello');
     category_1.default.findOne({ name: req.params['tag'] }).populate('politicians').exec(function (err, results) {

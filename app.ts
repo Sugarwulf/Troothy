@@ -39,7 +39,7 @@ mongoose.connect('mongodb://thrizzle:Found43$@ds153352.mlab.com:53352/troothy');
 
 app.use('/', routes);
 app.use('/userRoutes/api/', users);
-app.use('/api/politicians', politicians);
+app.use('/api/politicians/', politicians);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

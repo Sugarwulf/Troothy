@@ -136,8 +136,9 @@ var troothy;
                 this.details = this.politicianService.get(this.id);
             }
             EditDetailController.prototype.editDetails = function () {
-                this.politician._id = this.id;
-                this.politicianService.savePolitician(this.politician);
+                this.details._id = this.id;
+                this.politicianService.saveDetails(this.details);
+                console.log(this.details);
             };
             EditDetailController.prototype.viewUpdates = function () {
                 this.politician._id = this.id;

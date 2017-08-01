@@ -35,6 +35,14 @@ namespace troothy.Services {
          return this.PoliticianResource.save(politician);
         }
 
+        // public saveDetails(politician) {
+        //  return this.DetailsResource.save(politician);
+        // }
+
+        public saveDetails(details) {
+         return this.DetailsResource.save(details);
+        }
+
         public getPoliticians(category) {
           return this.PoliticianResource.query({tag: category}).$promise; //use query() when retrieving a collection of items
         }

@@ -26,7 +26,7 @@ app.use(passport.initialize());
 mongoose.connect('mongodb://thrizzle:Found43$@ds153352.mlab.com:53352/troothy');
 app.use('/', index_1.default);
 app.use('/userRoutes/api/', users_1.default);
-app.use('/api/politicians', politicians_1.default);
+app.use('/api/politicians/', politicians_1.default);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
         return next({ status: 404, message: 'Not Found' });
