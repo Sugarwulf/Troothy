@@ -13,6 +13,7 @@ var politicianSchema = new mongoose.Schema({
     socialMssg: String,
     envirMssg: String,
     classMssg: String,
-    xFactorMssg: String
+    xFactorMssg: String,
+    troothyScore: Number
 });
 exports.default = mongoose.model('Politician', politicianSchema);

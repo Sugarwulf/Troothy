@@ -124,7 +124,6 @@ namespace troothy.Controllers {
         private politicianService
       ) {
         this.id = $stateParams['id'];
-        // this.politicians = this.politicianService.get(this.id);
 
         let token = window.localStorage['token'];
 
@@ -153,7 +152,7 @@ namespace troothy.Controllers {
       ) {
         this.id = $stateParams['id'];
         this.details = this.politicianService.get(this.id);
-        // console.log(this.details)
+
       }
     }
 
@@ -162,15 +161,6 @@ namespace troothy.Controllers {
       public id
       public details
 
-      // public editDetails() {
-      // this.politician._id = this.id
-      // this.politicianService.savePolitician(this.politician)
-      // }
-
-      // public editDetails() {
-      // this.politician._id = this.id
-      // this.politicianService.saveDetails(this.politician)
-      // }
 
       public editDetails() {
       this.details._id = this.id
