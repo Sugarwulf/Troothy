@@ -107,7 +107,7 @@ namespace troothy.Controllers {
       public payload
       public politician
       public id
-      // public politicians
+
 
       public editPolitician() {
         if (this.payload.role === 'admin') {
@@ -131,6 +131,7 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
+        this.politician = this.politicianService.get(this.id);
       }
     }
 
@@ -138,6 +139,11 @@ namespace troothy.Controllers {
       public politician
       public id
       public details
+      public troothyScore
+
+      addScores() {
+        
+      }
 
       public addDetail() {
       this.politician = {}

@@ -96,6 +96,7 @@ var troothy;
                     this.payload = JSON.parse(window.atob(token.split('.')[1]));
                     console.log(this.payload);
                 }
+                this.politician = this.politicianService.get(this.id);
             }
             EditPoliticianController.prototype.editPolitician = function () {
                 if (this.payload.role === 'admin') {
@@ -118,6 +119,8 @@ var troothy;
                 this.id = $stateParams['id'];
                 this.details = this.politicianService.get(this.id);
             }
+            PoliticianDetailController.prototype.addScores = function () {
+            };
             PoliticianDetailController.prototype.addDetail = function () {
                 this.politician = {};
                 this.politician._id = this.id;

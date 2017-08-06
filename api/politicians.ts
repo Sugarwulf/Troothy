@@ -12,7 +12,7 @@ router.post('/', (req, res) => {
   if(req.body._id) {
     Politician.findByIdAndUpdate(req.body._id,
       {"$set": {"name": req.body.name, "title": req.body.title, "state": req.body.state, "spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
-      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg, "troothyScore": req.body.troothyScore }}, {"new": true, "upsert": false},
+      "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg, "hcMssg": req.body.hcMssg}}, {"new": true, "upsert": false},
      function (err, updatedCategory) {
        if (err) {
          res.send(err)
@@ -33,7 +33,8 @@ router.post('/', (req, res) => {
   politician.envirMssg = req.body.envirMssg;
   politician.classMssg = req.body.classMssg;
   politician.xFactorMssg = req.body.xFactorMssg;
-  politician.troothyScore = req.body.troothyScore;
+  politician.hcMssg = req.body.hcMssg;
+  // politician.troothyScore = req.body.troothyScore;
 
   politician.save((err, newPolitician) => {
     Category.findOne({name:req.body.category}).exec((err, result:any) => {
@@ -59,7 +60,7 @@ router.post('/', (req, res) => {
 router.post('/details', (req, res) => {
   Politician.findByIdAndUpdate(req.body._id,
     {"$set": {"spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
-    "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg }}, {"new": true, "upsert": false},
+    "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg, "hcMssg": req.body.hcMssg }}, {"new": true, "upsert": false},
     function (err, updatedCategory) {
       if (err) {
         res.send(err)

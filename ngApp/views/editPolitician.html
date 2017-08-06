@@ -3,46 +3,61 @@
 
 <h2>Edit politician</h2>
 
-<input type="text" placeholder="updated name" ng-model="vm.politician.name">
-<input type="text" placeholder="updated title" ng-model="vm.politician.title">
+<input type="text" placeholder="updated name" ng-model="vm.politician.name"> <br>
+<input type="text" placeholder="updated title" ng-model="vm.politician.title"><br>
 <input type="text" placeholder="updated state" ng-model="vm.politician.state"> <br>
 <hr>
 
 <p>Responsible Spending</p>
-<input type="textarea" name="SpendingDetail" cols="50" rows="20" ng-model="vm.politician.spendMssg"><br>
+<input type="textarea" name="SpendingDetail" cols="50" rows="20" ng-model="vm.politician.spendMssg.Message"><br>
+<input type="textarea" name="SpendingDetail" cols="3" rows="1" ng-model="vm.politician.spendMssg.Score"><br>
 <hr>
 
 <p>Military</p>
-<input type="textarea" name="Military" cols="50" rows="20" ng-model="vm.politician.militMssg"><br>
+<input type="textarea" name="Military" cols="50" rows="20" ng-model="vm.politician.militMssg.Message"><br>
+<input type="textarea" name="Military" cols="3" rows="1" ng-model="vm.politician.militMssg.Score"><br>
 <hr>
 
 <p>Immigration</p>
-<input type="textarea" name="Immigration" cols="50" rows="20" ng-model="vm.politician.immigMssg"><br>
+<input type="textarea" name="Immigration" cols="50" rows="20" ng-model="vm.politician.immigMssg.Message"><br>
+<input type="textarea" name="Immigration" cols="3" rows="1" ng-model="vm.politician.immigMssg.Score"><br>
 <hr>
 
 <p>Science/Technology</p>
-<input type="textarea" name="Science/Technology" cols="50" rows="20" ng-model="vm.politician.scitechMssg"><br>
+<input type="textarea" name="Science/Technology" cols="50" rows="20" ng-model="vm.politician.scitechMssg.Message"><br>
+<input type="textarea" name="Science/Technology" cols="3" rows="1" ng-model="vm.politician.scitechMssg.Score"><br>
 <hr>
 
 <p>Education</p>
-<input type="textarea" name="Education" cols="50" rows="20" ng-model="vm.politician.eduMssg"><br>
+<input type="textarea" name="Education" cols="50" rows="20" ng-model="vm.politician.eduMssg.Message"><br>
+<input type="textarea" name="Education" cols="3" rows="1" ng-model="vm.politician.eduMssg.Score"><br>
 <hr>
 
 <p>Social Issues</p>
-<input type="textarea" name="Social Issues" cols="50" rows="20" ng-model="vm.politician.socialMssg"><br>
+<input type="textarea" name="Social Issues" cols="50" rows="20" ng-model="vm.politician.socialMssg.Message"><br>
+<input type="textarea" name="Social Issues" cols="3" rows="1" ng-model="vm.politician.socialMssg.Score"><br>
 <hr>
 
 <p>Environment</p>
-<input type="textarea" name="Environment" cols="50" rows="20" ng-model="vm.politician.envirMssg"><br>
+<input type="textarea" name="Environment" cols="50" rows="20" ng-model="vm.politician.envirMssg.Message"><br>
+<input type="textarea" name="Environment" cols="3" rows="1" ng-model="vm.politician.envirMssg.Score"><br>
 <hr>
 
 <p>Class Fairness</p>
-<input type="textarea" name="Class Fairness" cols="50" rows="20" ng-model="vm.politician.classMssg"><br>
+<input type="textarea" name="Class Fairness" cols="50" rows="20" ng-model="vm.politician.classMssg.Message"><br>
+<input type="textarea" name="Class Fairness" cols="3" rows="1" ng-model="vm.politician.classMssg.Score"><br>
 <hr>
 
 <p>X-Factor</p>
-<input type="textarea" name="X-Factor" cols="50" rows="20" ng-model="vm.politician.xFactorMssg"><br>
+<input type="textarea" name="X-Factor" cols="50" rows="20" ng-model="vm.politician.xFactorMssg.Message"><br>
+<input type="textarea" name="X-Factor" cols="3" rows="1" ng-model="vm.politician.xFactorMssg.Score"><br>
 <hr>
+
+<p>Health Care</p>
+<input type="textarea" name="Health Care" cols="50" rows="20" ng-model="vm.politician.hcMssg.Message"><br>
+<input type="textarea" name="Health Care" cols="3" rows="1" ng-model="vm.politician.hcMssg.Score"><br>
+<hr>
+
 
 <button type="button" ng-click="vm.editPolitician()">Edit</button>
 
