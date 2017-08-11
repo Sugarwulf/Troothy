@@ -9,7 +9,8 @@ let router = express.Router();
 
 // Create/Update politician
 router.post('/', (req, res) => {
-  if(req.body._id) {
+console.log(req.body)
+  if(req.body._id !== undefined) {
     Politician.findByIdAndUpdate(req.body._id,
       {"$set": {"name": req.body.name, "title": req.body.title, "state": req.body.state, "spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
       "socialMssg": req.body.socialMssg, "envirMssg": req.body.envirMssg, "classMssg": req.body.classMssg, "xFactorMssg": req.body.xFactorMssg, "hcMssg": req.body.hcMssg}}, {"new": true, "upsert": false},
@@ -26,7 +27,9 @@ router.post('/', (req, res) => {
   politician.name = req.body.name;
   politician.title = req.body.title;
   politician.state = req.body.state;
+  politician.state = req.body.spendMssg;
   politician.militMssg = req.body.militMssg;
+  politician.immigMssg = req.body.immigMssg;
   politician.scitechMssg = req.body.scitechMssg;
   politician.eduMssg = req.body.eduMssg;
   politician.socialMssg = req.body.socialMssg;
@@ -36,12 +39,13 @@ router.post('/', (req, res) => {
   politician.hcMssg = req.body.hcMssg;
   // politician.troothyScore = req.body.troothyScore;
 
-  politician.save((err, newPolitician) => {
+  politician.save((err, newPolitician:any) => {
     Category.findOne({name:req.body.category}).exec((err, result:any) => {
       if (err) {
+        console.log(err);
         res.send(err)
       } else {
-        Category.findByIdAndUpdate(result._id, {"$push": {"politicians": newPolitician._id}}, {"new": true, "upsert": true},
+        Category.findByIdAndUpdate(result._id, {"$push": {"politicians": newPolitician._id}}, {"new": true, "upsert": false},
         function(err, updatedCategory) {
         if(err) {
           res.send(err)

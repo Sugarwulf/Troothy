@@ -85,7 +85,7 @@ namespace troothy.Controllers {
 
       public addPolitician() {
         if (this.payload.role === 'admin') {
-      this.politicianService.savePolitician(this.politician);
+          this.politicianService.savePolitician(this.politician);
       } else {
       alert('Denied. Admins Only!')
         }
@@ -100,6 +100,7 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
+        // this.politician = {}
       }
     }
 
@@ -142,7 +143,7 @@ namespace troothy.Controllers {
       public troothyScore
 
       addScores() {
-        
+
       }
 
       public addDetail() {
