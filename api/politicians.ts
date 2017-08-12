@@ -9,7 +9,7 @@ let router = express.Router();
 
 // Create/Update politician
 router.post('/', (req, res) => {
-console.log(req.body)
+//console.log(req.body)
   if(req.body._id !== undefined) {
     Politician.findByIdAndUpdate(req.body._id,
       {"$set": {"name": req.body.name, "title": req.body.title, "state": req.body.state, "spendMssg":req.body.spendMssg, "militMssg": req.body.militMssg, "immigMssg": req.body.immigMssg, "scitechMssg":req.body.scitechMssg, "eduMssg":req.body.eduMssg,
@@ -27,7 +27,8 @@ console.log(req.body)
   politician.name = req.body.name;
   politician.title = req.body.title;
   politician.state = req.body.state;
-  politician.state = req.body.spendMssg;
+  politician.spendMssg = req.body.spendMssg;
+  // politician.state = req.body.spendMssg;
   politician.militMssg = req.body.militMssg;
   politician.immigMssg = req.body.immigMssg;
   politician.scitechMssg = req.body.scitechMssg;
@@ -40,13 +41,14 @@ console.log(req.body)
   // politician.troothyScore = req.body.troothyScore;
 
   politician.save((err, newPolitician:any) => {
-    Category.findOne({name:req.body.category}).exec((err, result:any) => {
+    // Category.findOne({name:req.body.category}).exec((err, result:any) => {
+    Category.find({name:req.body.category}).exec((err, result:any) => {
       if (err) {
-        console.log(err);
         res.send(err)
       } else {
-        Category.findByIdAndUpdate(result._id, {"$push": {"politicians": newPolitician._id}}, {"new": true, "upsert": false},
-        function(err, updatedCategory) {
+        // Category.findByIdAndUpdate(result._id, {"$push": {"politicians": newPolitician._id}}, {"new": true, "upsert": false},
+        Category.findByIdAndUpdate(result[0]._id, {"$push": {"politicians": newPolitician._id}}, {"new": true, "upsert": false},
+        function(err, updatedCategory) { //ask about the index position [0] on above.
         if(err) {
           res.send(err)
         } else{
