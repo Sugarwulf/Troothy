@@ -7,6 +7,11 @@ var troothy;
                 this.userService = userService;
                 this.$window = $window;
                 this.$state = $state;
+                this.contenders = [
+                    { id: 1, name: "booker", image: 'http://www.followthegls.com/wp-content/uploads/2017/06/Booker_Credit-Kelly-Campbell.jpg' },
+                    { id: 2, name: "trump", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Donald_Trump_Pentagon_2017.jpg/440px-Donald_Trump_Pentagon_2017.jpg' },
+                    { id: 3, name: "kasich", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg' }
+                ];
             }
             LoginController.prototype.login = function () {
                 if (this.isAdmin === true) {

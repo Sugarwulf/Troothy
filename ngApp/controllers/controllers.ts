@@ -3,6 +3,8 @@ namespace troothy.Controllers {
     export class LoginController {
       public userInfo
       public isAdmin
+      public contenders
+
 
       public login() {
         if(this.isAdmin === true) {
@@ -24,9 +26,14 @@ namespace troothy.Controllers {
       public constructor(
         private userService,
         public $window,
-        public $state
-      ) {
+        public $state,
 
+      ) {
+        this.contenders = [
+          {id:1, name:"booker", image:'http://www.followthegls.com/wp-content/uploads/2017/06/Booker_Credit-Kelly-Campbell.jpg'},
+          {id:2, name:"trump", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Donald_Trump_Pentagon_2017.jpg/440px-Donald_Trump_Pentagon_2017.jpg'},
+          {id:3, name:"kasich", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg'}
+        ]
       }
     }
 
@@ -100,7 +107,6 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
-        // this.politician = {}
       }
     }
 
@@ -159,7 +165,10 @@ namespace troothy.Controllers {
       ) {
         this.id = $stateParams['id'];
         this.details = this.politicianService.get(this.id);
-
+        // console.log(JSON.parse(this.details))
+        // for(let props in this.details) {
+        //   console.log(props)
+        // }
       }
     }
 

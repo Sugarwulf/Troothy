@@ -1,8 +1,28 @@
-<h2>Login</h2>
-<input type="text" placeholder="username" ng-model="vm.userInfo.username"/>
-<input type="password" placeholder="password" ng-model="vm.userInfo.password"/>
-<button type="button" ng-click="vm.login()">Login</button>
-<p>Admin <input type="checkbox" ng-model="vm.isAdmin" /></p>
-<div style="padding-top: 25px;">
-  <a href="/register">New Account</a>
+<div class="container">
+
+<div id="loginDiv" class="container">
+  <h2 id="appName">Troothy</h2>
+   <input type="text" placeholder="username" ng-model="vm.userInfo.username"/>
+   <input type="password" placeholder="password" ng-model="vm.userInfo.password"/>
+   <button type="button" ng-click="vm.login()">Login</button>
+   <p>Admin <input type="checkbox" ng-model="vm.isAdmin" /></p>
+</div>
+
+<div id="registerDiv" class="container">
+  <p>New to Troothy? <span><a href="/register">Sign Up</a></span> for free!</p>
+</div>
+
+<div id="polImages" class="container">
+  <ul id="imageList">
+    <li ng-repeat ="c in vm.contenders">
+       <img class="thumbnail" ng-src="{{c.image}}" height="267" width="200">
+    </li>
+  </ul>
+</div>
+
+<div id="footDiv" class="container">
+  <p>When deeds speak, words are nothing. ~ African Proverb</p>
+  <!-- <p>Do not be wise in words, be wise in deeds. ~ Jewish proverb</p> -->
+</div>
+
 </div>

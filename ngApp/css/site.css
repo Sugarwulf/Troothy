@@ -1,0 +1,17 @@
+#loginDiv {
+  background-color:  #9C96AC
+}
+
+#appName{
+  font-family: 'Aclonica', sans-serif;
+}
+
+#registerDiv {
+  background-color: #F5F3FB
+}
+
+#imageList li {
+  display: inline-block;
+  list-style-type: none;
+  padding-right: 20px;
+}
