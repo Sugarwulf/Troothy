@@ -1,68 +1,73 @@
-<div class="container" >
+<div id="edHeader" style="padding-bottom: 20px" class="container" >
 
 
 <h2>Edit Politician Detail</h2>
 
 <p>{{vm.details.name}} | {{vm.details.title}} | {{vm.details.state}}</p>
-<hr>
+</div>
+
+<div class="container">
+
 <h4>Add or update details in the text boxes below.  If your contributions or edits are "troothy" they shall remain.</h4>
-<hr>
+</div>
+
+
+<div id="edContent" style="padding-top: 20px;" class="container">
 
 <p>Responsible Spending</p>
 <textarea name="SpendingDetail" rows="3" cols="120" ng-model="vm.details.spendMssg.Message"></textarea>
-<textarea name="SpendingDetail" rows="1" cols="3" ng-model="vm.details.spendMssg.Score"></textarea>
+<!-- <textarea name="SpendingDetail" rows="1" cols="3" ng-model="vm.details.spendMssg.Score"></textarea> -->
 <hr>
 
 <p>Military</p>
 <textarea name="Military" rows="3" cols="120" ng-model="vm.details.militMssg.Message"></textarea>
-<textarea name="Military" rows="1" cols="3" ng-model="vm.details.militMssg.Score"></textarea>
+<!-- <textarea name="Military" rows="1" cols="3" ng-model="vm.details.militMssg.Score"></textarea> -->
 <hr>
 
 <p>Immigration</p>
 <textarea name="Immigration" rows="3" cols="120" ng-model="vm.details.immigMssg.Message"></textarea>
-<textarea name="Immigration" rows="1" cols="3" ng-model="vm.details.immigMssg.Score"></textarea>
+<!-- <textarea name="Immigration" rows="1" cols="3" ng-model="vm.details.immigMssg.Score"></textarea> -->
 <hr>
 
 <p>Science/Technology</p>
 <textarea name="Military" rows="3" cols="120" ng-model="vm.details.scitechMssg.Message"></textarea>
-<textarea name="Military" rows="1" cols="3" ng-model="vm.details.scitechMssg.Score"></textarea>
+<!-- <textarea name="Military" rows="1" cols="3" ng-model="vm.details.scitechMssg.Score"></textarea> -->
 <hr>
 
 <p>Education</p>
 <textarea name="Education" rows="3" cols="120" ng-model="vm.details.eduMssg.Message"></textarea>
-<textarea name="Education" rows="1" cols="3" ng-model="vm.details.eduMssg.Score"></textarea>
+<!-- <textarea name="Education" rows="1" cols="3" ng-model="vm.details.eduMssg.Score"></textarea> -->
 <hr>
 
 <p>Social Issues</p>
 <textarea name="Social Issues" rows="3" cols="120" ng-model="vm.details.socialMssg.Message"></textarea>
-<textarea name="Social Issues" rows="1" cols="3" ng-model="vm.details.socialMssg.Score"></textarea>
+<!-- <textarea name="Social Issues" rows="1" cols="3" ng-model="vm.details.socialMssg.Score"></textarea> -->
 <hr>
 
 <p>Environment</p>
 <textarea name="Environment" rows="3" cols="120" ng-model="vm.details.envirMssg.Message"></textarea>
-<textarea name="Environment" rows="1" cols="3" ng-model="vm.details.envirMssg.Score"></textarea>
+<!-- <textarea name="Environment" rows="1" cols="3" ng-model="vm.details.envirMssg.Score"></textarea> -->
 <hr>
 
 <p>Class Fairness</p>
 <textarea name="Class Fairness" rows="3" cols="120" ng-model="vm.details.classMssg.Message"></textarea>
-<textarea name="Class Fairness" rows="1" cols="3" ng-model="vm.details.classMssg.Score"></textarea>
+<!-- <textarea name="Class Fairness" rows="1" cols="3" ng-model="vm.details.classMssg.Score"></textarea> -->
 <hr>
 
 <p>X-Factor</p>
 <textarea name="X-Factor" rows="3" cols="120" ng-model="vm.details.xFactorMssg.Message"></textarea>
-<textarea name="X-Factor" rows="1" cols="3" ng-model="vm.details.xFactorMssg.Score"></textarea>
+<!-- <textarea name="X-Factor" rows="1" cols="3" ng-model="vm.details.xFactorMssg.Score"></textarea> -->
 <hr>
 
 <p>Health Care</p>
 <textarea name="Health Care" rows="3" cols="120" ng-model="vm.details.hcMssg.Message"></textarea>
-<textarea name="Health Care" rows="1" cols="3" ng-model="vm.details.hcMssg.Score"></textarea>
-<hr>
-
-<button class="button" ng-click="vm.editDetails()">Save changes</button>
-<hr>
-<button class="button" name="viewUpdates"><a ng-click="vm.viewUpdates(p._id)">View updates</a></button>
-<br>
-<hr>
-<button class="button" name="home"><a href="/home">Back Home</a></button>
-
+<!-- <textarea name="Health Care" rows="1" cols="3" ng-model="vm.details.hcMssg.Score"></textarea> -->
 </div>
+
+    <div id="edBtnDiv" style="padding:20px" class="container">
+<button class="button" style="margin-bottom:20px" ng-click="vm.editDetails()">Save changes</button>
+<br>
+<button class="button" style="margin-bottom:20px" name="viewUpdates"><a ng-click="vm.viewUpdates(p._id)">View updates</a></button>
+<br>
+<button class="button" name="home"><a href="/home">Back Home</a></button>
+    </div>

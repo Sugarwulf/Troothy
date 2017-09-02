@@ -28,7 +28,7 @@ namespace troothy.Services {
 
         public get(id) {
           console.log(id)
-        return this.DetailsResource.get({id:id}) //use get() instead of query() when retrieving a single item id
+        return this.DetailsResource.get({id:id}).$promise; //use get() instead of query() when retrieving a single item id
       }
 
         public savePolitician(politician) {

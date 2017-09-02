@@ -1,63 +1,65 @@
-<div class="container" >
+<div id="pdHeader" style="padding-bottom: 20px" class="container" >
 
 
 <h2>Politician Detail</h2>
 
 <!-- reference a whole new endpoint and controller with this angular code below -->
 {{vm.details.name}} | {{vm.details.title}} | {{vm.details.state}}
-<hr>
+</div>
+
+<div style = "padding-top: 20px;" class="container">
 
 <p>Responsible Spending</p>
 <p>{{vm.details.spendMssg.Message}}</p>
-<p>Spending Score</p>
+<p>Score</p>
 <p>{{vm.details.spendMssg.Score}}</p>
 <hr>
 
 <p>Military</p>
 <p>{{vm.details.militMssg.Message}}</p>
-<p>Military Score</p>
+<p>Score</p>
 <p>{{vm.details.militMssg.Score}}</p>
 <hr>
 
 <p>Immigration</p>
 <p>{{vm.details.immigMssg.Message}}</p>
-<p>Immigration Score</p>
+<p>Score</p>
 <p>{{vm.details.immigMssg.Score}}</p>
 <hr>
 
 <p>Science/Technology</p>
 <p>{{vm.details.scitechMssg.Message}}</p>
-<p>Science/Tech Score</p>
+<p>Score</p>
 <p>{{vm.details.scitechMssg.Score}}</p>
 <hr>
 
 <p>Education</p>
 <p>{{vm.details.eduMssg.Message}}</p>
-<p>Education Score</p>
+<p>Score</p>
 <p>{{vm.details.eduMssg.Score}}</p>
 <hr>
 
 <p>Social Issues</p>
 <p>{{vm.details.socialMssg.Message}}</p>
-<p>Social Issues Score</p>
+<p>Score</p>
 <p>{{vm.details.socialMssg.Score}}</p>
 <hr>
 
 <p>Environment</p>
 <p>{{vm.details.envirMssg.Message}}</p>
-<p>Environmental Score</p>
+<p>Score</p>
 <p>{{vm.details.envirMssg.Score}}</p>
 <hr>
 
 <p>Class Fairness</p>
 <p>{{vm.details.classMssg.Message}}</p>
-<p>Class Fairness Score</p>
+<p>Score</p>
 <p>{{vm.details.classMssg.Score}}</p>
 <hr>
 
 <p>X-Factor</p>
 <p>{{vm.details.xFactorMssg.Message}}</p>
-<p>X-Factor Score</p>
+<p>Score</p>
 <p>{{vm.details.xFactorMssg.Score}}</p>
 <hr>
 
@@ -68,12 +70,13 @@
 <hr>
 
 <p>Troothy Score</p>
-<!-- <p>{{}}</p> -->
-<hr>
+<p>{{vm.troothyScore}}</p>
 
-<button type="button" class="button"><a ng-click="vm.addDetail(p._id)">Update details</a></button>
+</div>
+
+    <div id="pdBtnDiv" style="padding:20px" class="container">
+<button style="margin-bottom:20px" class="button"><a ng-click="vm.addDetail(p._id)">Update details</a></button>
 <br>
-<hr>
 <button type="button" class="button"><a href="/home">Back Home</a></button>
-<hr>
+    </div>
 </div>

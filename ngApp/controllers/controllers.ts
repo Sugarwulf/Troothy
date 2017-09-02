@@ -32,7 +32,9 @@ namespace troothy.Controllers {
         this.contenders = [
           {id:1, name:"booker", image:'http://www.followthegls.com/wp-content/uploads/2017/06/Booker_Credit-Kelly-Campbell.jpg'},
           {id:2, name:"trump", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Donald_Trump_Pentagon_2017.jpg/440px-Donald_Trump_Pentagon_2017.jpg'},
-          {id:3, name:"kasich", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg'}
+          {id:3, name:"kasich", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg'},
+          {id:4, name: "sanders", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bernie_Sanders.jpg/440px-Bernie_Sanders.jpg'},
+          {id:5, name: "king", image:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Angus_King%2C_official_portrait%2C_113th_Congress.jpg/440px-Angus_King%2C_official_portrait%2C_113th_Congress.jpg'}
         ]
       }
     }
@@ -138,9 +140,12 @@ namespace troothy.Controllers {
           this.payload = JSON.parse(window.atob(token.split('.')[1]));
           console.log(this.payload);
         }
-        this.politician = this.politicianService.get(this.id);
-      }
+        // this.politician = this.politicianService.get(this.id);
+        this.politicianService.get(this.id).then((result) => {
+          this.politician = result;
+      })
     }
+  }
 
     export class PoliticianDetailController {
       public politician
@@ -164,11 +169,21 @@ namespace troothy.Controllers {
         public $state
       ) {
         this.id = $stateParams['id'];
-        this.details = this.politicianService.get(this.id);
-        // console.log(JSON.parse(this.details))
-        // for(let props in this.details) {
-        //   console.log(props)
-        // }
+        // this.details = this.politicianService.get(this.id);
+        this.politicianService.get(this.id).then((result) => {
+          this.details = result;
+          let total = 0;
+          for(let props in result) {
+            if(props === 'classMssg' || props === 'eduMssg' || props === 'envirMssg'||
+          props === 'hcMssg' || props === 'immigMssg' || props === 'militMssg'|| props === 'envirMssg' ||
+          props === 'scitechMssg' || props === 'socialMssg' || props === 'spendMssg' ||
+          props === 'xFactorMssg') {
+            total += parseFloat(result[props].Score);
+            }
+          }
+          this.troothyScore = total;
+
+        })
       }
     }
 
@@ -185,6 +200,7 @@ namespace troothy.Controllers {
       }
 
       public viewUpdates() {
+        this.politician = {}
         this.politician._id = this.id
         this.$state.go('politicianDetail', {id: this.id} );
          }
@@ -194,9 +210,11 @@ namespace troothy.Controllers {
         private politicianService,
         public $state
       ) {
-        this.politician = {}
         this.id = $stateParams['id'];
-        this.details = this.politicianService.get(this.id);
-      }
+        // this.details = this.politicianService.get(this.id);
+        this.politicianService.get(this.id).then((result) => {
+          this.details = result;
+      })
     }
+  }
 }

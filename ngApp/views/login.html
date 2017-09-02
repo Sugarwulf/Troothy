@@ -1,10 +1,10 @@
-<div class="container">
+<!-- <div class="container"> -->
 
 <div id="loginDiv" class="container">
-  <h2 id="appName">Troothy</h2>
+  <h1 id="appName">Troothy</h1>
    <input type="text" placeholder="username" ng-model="vm.userInfo.username"/>
    <input type="password" placeholder="password" ng-model="vm.userInfo.password"/>
-   <button type="button" ng-click="vm.login()">Login</button>
+   <button class="btn btn-primary" ng-click="vm.login()">Login</button>
    <p>Admin <input type="checkbox" ng-model="vm.isAdmin" /></p>
 </div>
 
@@ -13,6 +13,7 @@
 </div>
 
 <div id="polImages" class="container">
+  <h3 id="tag">Evaluate by action and impact, instead of promises and banter.</h3>
   <ul id="imageList">
     <li ng-repeat ="c in vm.contenders">
        <img class="thumbnail" ng-src="{{c.image}}" height="267" width="200">
@@ -21,8 +22,8 @@
 </div>
 
 <div id="footDiv" class="container">
-  <p>When deeds speak, words are nothing. ~ African Proverb</p>
+  <p id="quote">"When deeds speak, words are nothing." ~ African Proverb</p>
   <!-- <p>Do not be wise in words, be wise in deeds. ~ Jewish proverb</p> -->
 </div>
 
-</div>
+<!-- </div> -->

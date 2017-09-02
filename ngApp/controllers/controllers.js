@@ -10,7 +10,9 @@ var troothy;
                 this.contenders = [
                     { id: 1, name: "booker", image: 'http://www.followthegls.com/wp-content/uploads/2017/06/Booker_Credit-Kelly-Campbell.jpg' },
                     { id: 2, name: "trump", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Donald_Trump_Pentagon_2017.jpg/440px-Donald_Trump_Pentagon_2017.jpg' },
-                    { id: 3, name: "kasich", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg' }
+                    { id: 3, name: "kasich", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Governor_John_Kasich.jpg/440px-Governor_John_Kasich.jpg' },
+                    { id: 4, name: "sanders", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bernie_Sanders.jpg/440px-Bernie_Sanders.jpg' },
+                    { id: 5, name: "king", image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Angus_King%2C_official_portrait%2C_113th_Congress.jpg/440px-Angus_King%2C_official_portrait%2C_113th_Congress.jpg' }
                 ];
             }
             LoginController.prototype.login = function () {
@@ -93,6 +95,7 @@ var troothy;
         Controllers.AddPoliticianController = AddPoliticianController;
         var EditPoliticianController = (function () {
             function EditPoliticianController($stateParams, politicianService) {
+                var _this = this;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.id = $stateParams['id'];
@@ -101,7 +104,9 @@ var troothy;
                     this.payload = JSON.parse(window.atob(token.split('.')[1]));
                     console.log(this.payload);
                 }
-                this.politician = this.politicianService.get(this.id);
+                this.politicianService.get(this.id).then(function (result) {
+                    _this.politician = result;
+                });
             }
             EditPoliticianController.prototype.editPolitician = function () {
                 if (this.payload.role === 'admin') {
@@ -118,11 +123,24 @@ var troothy;
         Controllers.EditPoliticianController = EditPoliticianController;
         var PoliticianDetailController = (function () {
             function PoliticianDetailController($stateParams, politicianService, $state) {
+                var _this = this;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.$state = $state;
                 this.id = $stateParams['id'];
-                this.details = this.politicianService.get(this.id);
+                this.politicianService.get(this.id).then(function (result) {
+                    _this.details = result;
+                    var total = 0;
+                    for (var props in result) {
+                        if (props === 'classMssg' || props === 'eduMssg' || props === 'envirMssg' ||
+                            props === 'hcMssg' || props === 'immigMssg' || props === 'militMssg' || props === 'envirMssg' ||
+                            props === 'scitechMssg' || props === 'socialMssg' || props === 'spendMssg' ||
+                            props === 'xFactorMssg') {
+                            total += parseFloat(result[props].Score);
+                        }
+                    }
+                    _this.troothyScore = total;
+                });
             }
             PoliticianDetailController.prototype.addScores = function () {
             };
@@ -136,12 +154,14 @@ var troothy;
         Controllers.PoliticianDetailController = PoliticianDetailController;
         var EditDetailController = (function () {
             function EditDetailController($stateParams, politicianService, $state) {
+                var _this = this;
                 this.$stateParams = $stateParams;
                 this.politicianService = politicianService;
                 this.$state = $state;
-                this.politician = {};
                 this.id = $stateParams['id'];
-                this.details = this.politicianService.get(this.id);
+                this.politicianService.get(this.id).then(function (result) {
+                    _this.details = result;
+                });
             }
             EditDetailController.prototype.editDetails = function () {
                 this.details._id = this.id;
@@ -149,6 +169,7 @@ var troothy;
                 console.log(this.details);
             };
             EditDetailController.prototype.viewUpdates = function () {
+                this.politician = {};
                 this.politician._id = this.id;
                 this.$state.go('politicianDetail', { id: this.id });
             };
